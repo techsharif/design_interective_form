@@ -15,49 +15,76 @@
 
 <style>
     .modal-content{
-        border:1px solid #233f55;
+        border:3px solid #233f55;
     }
-    .modal-footer{
+    .modal-header{
         background: #233f55;
+        margin-bottom: 3em;
     }
     .bootstrap-tagsinput{
         border: none;
-        border-bottom: 1px solid #b2b6b7;
+        border-bottom: 2px solid #656a6d;
         background: none;
         -webkit-box-shadow: none;
         -moz-box-shadow: none ;
         box-shadow: none;
         margin-bottom: 2em;
-        height: 4em;
+        font-size: 1.2em;
+
     }
     .form-control{
         border: none;
-        border-bottom: 1px solid #b2b6b7;
+        border-bottom: 2px solid #656a6d;
         background: none;
         -webkit-box-shadow: none;
         -moz-box-shadow: none ;
         box-shadow: none;
-        margin-bottom: 2em;
-        height: 4em;
+        margin-bottom: 1.5em;
+        height: 3em;
+        font-size: 1.5em;
+
     }
     .input{
         background: #ececec;
     }
     label{
-        color: #596467;
+        color: #233f55;
         padding: 2px 12px;
         font-weight: bold;
+        font-size: 1.2em;
+
     }
     .label{
-        font-size: 100%;
+        font-size: 90%;
+        line-height: 2;
+        border-bottom: 2px solid #656a6d;
     }
     textarea.form-control{
-        height: 4em;
-        transition: all 2s;
-        -webkit-transition: all 2s;
+        height: 3em;
+        transition: all 1s;
+        -webkit-transition: all 1s;
     }
     textarea.form-control:focus {
-        height:10em;
+        height:7em;
+    }
+    .title{
+        font-size: 2em;
+        color: #fef9e2;
+    }
+    .hrline{
+        border: 1px solid #cccccc;
+    }
+    /* webkit solution */
+    ::-webkit-input-placeholder { font-style: italic; }
+
+    /* mozilla solution - this is for firefox 18+ */
+    ::-moz-placeholder { font-style: italic; }
+
+    /* mozilla solution - this is for firefox 18- */
+    :-moz-placeholder { font-style: italic; }
+    .icon-select-value{
+        -webkit-appearance: none;
+        background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat right;
     }
 </style>
 <!-- BEGIN # -->
@@ -83,7 +110,26 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header" align="center">
-                <h2>Lorem ipsum dolor sit amet, consectetur adipisicing.</h2>
+                <div class="row">
+                    <div class="col-md-7">
+                        <p class="title">Lorem ipsum dolor sit amet.</p>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="col-md-6">
+                            <button data-dismiss="modal" type="submit"
+                                    class="btn btn-danger btn-lg btn-block">Cancel
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button data-target="#confirm-modal" data-toggle="modal" data-dismiss="modal" type="submit"
+                                    class="btn btn-primary btn-lg btn-block">Add
+                            </button>
+                        </div>
+
+
+                    </div>
+
+                </div>
             </div>
             <!-- Begin # DIV Form -->
             <div id="div-forms">
@@ -102,6 +148,25 @@
                         <textarea name="" class="form-control" id="address" placeholder="Enter address"></textarea>
                         <label for="entry-tags" > tags </label>
                         <input id="entry-tags" data-role="tagsinput" class="form-control" placeholder="Add tags">
+
+                        <div class="row">
+                                <div class="col-md-8">
+                                    <label for="extra-info" > Extra Info </label>
+                                    <hr class="hrline">
+                                    <textarea name="" class="form-control" id="extra-info" placeholder="Enter address"></textarea>
+                                </div>
+                            <div class="col-md-4">
+                                <label for="info-type" > Info type </label>
+                                <hr class="hrline">
+                                <select class="form-control icon-select-value" name="" id="info-type">
+                                    <option value="">Private</option>
+                                    <option value="">Public</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox"> I want to add
@@ -109,23 +174,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <div class="row">
-                            <div class="col-md-offset-7 col-md-5">
-                                <div class="col-md-6">
-                                    <button data-dismiss="modal" type="submit"
-                                            class="btn btn-danger btn-lg btn-block">Cancel
-                                    </button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button data-target="#confirm-modal" data-toggle="modal" data-dismiss="modal" type="submit"
-                                            class="btn btn-primary btn-lg btn-block">Add
-                                    </button>
-                                </div>
 
-
-                            </div>
-
-                        </div>
                     </div>
                 </form>
                 <!-- End # Login Form -->
@@ -145,13 +194,10 @@
      style="display: none;">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header" align="center">
-
+            <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
-            </div>
-            <div class="modal-body">
                 <h3>Congratulation</h3>
             </div>
 
