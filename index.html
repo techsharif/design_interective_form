@@ -82,6 +82,7 @@
                             <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
                             <span id="text-login-msg">Type your username and password.</span>
                         </div>
+                        <input id="highlighted_input" class="form-control" type="text" >
                         <input id="login_username" class="form-control" type="text" placeholder="Username">
                         <input id="login_password" class="form-control" type="password" placeholder="Password"><br>
                         <input data-role="tagsinput" class="form-control" placeholder="Add tags">
@@ -145,6 +146,7 @@
         var myBookId = $(this).closest("div").find("h2").text();
         console.log(myBookId);
         $("#dynamic-text").html(myBookId);
+        $("#highlighted_input").val(myBookId);
     });
 </script>
 </body>
